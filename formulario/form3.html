@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Mohamad Mansour" />
+		<meta name="description" content="ejercicio" />
+		<link rel="stylesheet" href="./style.css" />
+		<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			$(function () {
+				$("#includedContent").load("/menu/menu.html");
+			});
+		</script>
+		<style>
+			fieldset {
+				background-color: #818181;
+			}
+			form input {
+				margin: 2px;
+			}
+			body {
+				background-color: #ffffff;
+			}
+			legend {
+				background-color: rgb(196, 196, 196);
+				color: rgb(0, 0, 0);
+				padding: 5px 10px;
+			}
+			div {
+				border: 2px solid red;
+				text-align: left;
+				margin: auto;
+				width: 60%;
+				min-width: min-content;
+				margin-bottom: 3px;
+			}
+
+			div div {
+				border: 2px solid blue;
+				margin: 5px auto 5px auto;
+			}
+			div div div {
+				border: 2px solid green;
+				text-align: right;
+			}
+			textarea {
+				margin: 4px;
+			}
+			select {
+				background-color: rgb(141, 49, 141);
+				width: 250px;
+				height: 50px;
+				font-size: 30px;
+				color: rgb(0, 0, 0);
+			}
+			.desliza {
+				border: 2px gold solid;
+				width: 50px;
+				height: 50px;
+				padding: 5px;
+				margin: 25px auto 40px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			.desliza::after {
+				top: 0;
+				right: 0;
+				position: absolute;
+				background-color: gold;
+				width: 50px;
+				height: 70px;
+				pointer-events: none;
+				content: "\025be";
+				text-align: center;
+			}
+			div p {
+				margin: 4px 4px 0px 4px;
+			}
+			input[type="number"] {
+				width: 50px;
+				height: 50px;
+				font-size: 30px;
+			}
+			input[type="number"]::-webkit-inner-spin-button,
+			input[type="number"]::-webkit-outer-spin-button {
+				opacity: 1;
+				width: 50px;
+				height: 50px;
+				font-size: 30px;
+			}
+			input[type="submit"] {
+				background-color: green;
+				width: 250px;
+				color: white;
+				cursor: pointer;
+			}
+			input[type="reset"] {
+				width: 250px;
+				color: white;
+				cursor: pointer;
+				background-color: red;
+				float: right;
+			}
+			input[type="reset"]:hover {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>Titulo del form</legend>
+				<div>
+					<p>Datos personales</p>
+					<div>
+						<label>nombre:</label>
+						<input name="name" placeholder="abc" />
+					</div>
+					<div>
+						<label>telefono:</label>
+						<input type="tel" value="666996699" disabled /><br />
+						<input type="tel" name="telefono" value="666996699" />
+					</div>
+					<div>
+						<label></label>
+						<input
+							type="email"
+							name="email"
+							placeholder="nsc@gmail.com"
+							autocomplete="on"
+							pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+						/>
+					</div>
+				</div>
+				<div>
+					<p>Selector</p>
+					<div>
+						<div>
+							<label>1</label>
+							<input type="radio" name="radio" checked />
+						</div>
+						<div>
+							<label>2</label>
+							<input type="radio" name="radio" />
+						</div>
+						<div>
+							<label>3</label>
+							<input type="radio" name="radio" />
+						</div>
+					</div>
+				</div>
+				<div>
+					<textarea name="textarea" id="" cols="8" rows="5"></textarea>
+				</div>
+				<div>
+					<div class="desliza">
+						<select name="seleccionar">
+							<optgroup
+								label="hola"
+								style="background-color: green; color: white"
+							>
+								<option value="1" style="background-color: blue">1</option>
+								<option value="2" style="background-color: blue">2</option>
+								<option value="3" style="background-color: red" selected>
+									3
+								</option>
+							</optgroup>
+							<optgroup
+								label="grupo2"
+								style="background-color: green; color: white"
+							>
+								<option value="5" style="background-color: blue">5</option>
+								<option value="6" style="background-color: blue">6</option>
+								<option value="7" style="background-color: rgb(0, 162, 255)">
+									7
+								</option>
+							</optgroup>
+							<option value="4" style="background-color: blue">4</option>
+						</select>
+					</div>
+				</div>
+				<div>
+					<label for="quantity">Numero:</label>
+					<input type="number" name="quantity" min="1" max="10" value="3" />
+				</div>
+				<div>
+					<p>Fechas:</p>
+					<div>
+						<label for="week">Semana:</label>
+						<input type="week" name="Semana" value="2022-W20" />
+					</div>
+					<div>
+						<label for="month">Mes:</label>
+						<input type="month" id="month" name="month" value="2022-03" />
+					</div>
+					<div>
+						<label for="date">Fecha:</label>
+						<input type="date" id="date" name="date" value="2022-03-31" />
+					</div>
+				</div>
+				<div>
+					<label for="myfile"></label>
+					<input type="file" id="myfile" name="myfile" accept=".jpeg,.gif" />
+				</div>
+				<div>
+					<input type="submit" />
+					<input type="reset" value="Borrar" />
+				</div>
+			</fieldset>
+		</form>
+	</body>
+</html>
